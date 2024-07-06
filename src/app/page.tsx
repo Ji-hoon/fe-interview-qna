@@ -1,5 +1,46 @@
 import Image from "next/image";
+import { notionDatabase } from "@/global/notion";
+import Link from "next/link";
 
+type PageType = {
+  id: string;
+  properties: any;
+  url: string;
+  created_time: Date;
+};
+
+export default async function Main() {
+  if (!process.env.NOTION_DATABASE_ID) {
+    throw new Error("데이터베이스 아이디가 없습니다.");
+  }
+  const db = await notionDatabase.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID,
+  });
+
+  const pages = db.results as unknown as PageType[];
+
+  console.log(pages);
+
+  return (
+    <>
+      <h1 className="text-2xl font-bold">프론트엔드 인터뷰 질문 모음</h1>
+      {pages.length > 0 && (
+        <ul className="py-4">
+          {pages.reverse().map((page: PageType) => {
+            return (
+              <li key={page.id} className="flex gap-3">
+                <b>{page.properties.Tags.multi_select[0].name}</b>
+                <Link href={page.url.split("-").reverse()[0] || ""}>{page.properties.Name.title[0].plain_text}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </>
+  );
+}
+
+/* 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -110,4 +151,4 @@ export default function Home() {
       </div>
     </main>
   );
-}
+}*/
