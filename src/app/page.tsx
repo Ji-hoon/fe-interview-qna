@@ -26,6 +26,8 @@ export default async function Main() {
     <>
       <Header>
         <h1 className="text-2xl font-bold">프론트엔드 인터뷰 질문 모음</h1>
+        <div className="grow"></div>
+        <Link href={"/about"}>About</Link>
       </Header>
       {pages.length > 0 && (
         <ul className="p-10 py-8">
