@@ -24,6 +24,10 @@ a {
   color: rgb(var(--primary));
 }
 
+code {
+  white-space: break-spaces;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -39,5 +43,8 @@ a {
   }
   .main-list li:last-child {
     @apply border-b;
+  }
+  .code-block {
+    @apply bg-gray-100 p-6 rounded-md my-4 text-gray-600;
   }
 }
