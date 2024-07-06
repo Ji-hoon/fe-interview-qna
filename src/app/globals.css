@@ -23,12 +23,21 @@ body {
 a {
   color: rgb(var(--primary));
 }
-a:hover {
-  text-decoration: underline;
-}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .capsule-label {
+    @apply px-3 py-1 bg-gray-100 text-sm rounded-2xl;
+  }
+  .main-list li {
+    @apply border-t;
+  }
+  .main-list li:last-child {
+    @apply border-b;
   }
 }

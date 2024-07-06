@@ -22,25 +22,52 @@ export default async function Main() {
 
   console.log(pages);
 
+  const categories = Array.from(
+    new Set(
+      pages.map((page) => {
+        return page.properties.Select.select.name;
+      })
+    )
+  );
+
   return (
     <>
       <Header>
-        <h1 className="text-2xl font-bold">프론트엔드 인터뷰 질문 모음</h1>
+        <h1 className="text-2xl font-bold">프론트엔드 인터뷰 질문 위키</h1>
         <div className="grow"></div>
         <Link href={"/about"}>About</Link>
       </Header>
-      {pages.length > 0 && (
-        <ul className="p-10 py-8">
-          {pages.reverse().map((page: PageType) => {
+      <section className="grid grid-cols-2">
+        {categories.length > 0 &&
+          categories.map((category, index) => {
             return (
-              <li key={page.id} className="flex gap-3">
-                <b>{page.properties.Tags.multi_select[0].name}</b>
-                <Link href={page.url.split("-").reverse()[0] || ""}>{page.properties.Name.title[0].plain_text}</Link>
-              </li>
+              <div key={`${index}_${category}`} className="p-10 py-8 w-full">
+                <h3 className="text-xl mb-2 font-bold flex gap-2">
+                  {category}
+                  <span className="capsule-label">
+                    {pages.filter((page) => page.properties.Select.select.name === category).length}
+                  </span>
+                </h3>
+                <ul className="main-list">
+                  {pages.reverse().map((page: PageType) => {
+                    if (page.properties.Select.select.name === category)
+                      return (
+                        <li key={page.id} className="flex">
+                          {/* <b>{page.properties.Tags.multi_select[0].name}</b> */}
+                          <Link
+                            className="w-full px-2 py-3 hover:bg-gray-100 hover:px-4 transition-all"
+                            href={page.url.split("-").reverse()[0] || ""}
+                          >
+                            {page.properties.Name.title[0].plain_text}
+                          </Link>
+                        </li>
+                      );
+                  })}
+                </ul>
+              </div>
             );
           })}
-        </ul>
-      )}
+      </section>
     </>
   );
 }
