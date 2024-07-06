@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notionDatabase } from "@/global/notion";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 type PageType = {
   id: string;
@@ -23,9 +24,11 @@ export default async function Main() {
 
   return (
     <>
-      <h1 className="text-2xl font-bold">프론트엔드 인터뷰 질문 모음</h1>
+      <Header>
+        <h1 className="text-2xl font-bold">프론트엔드 인터뷰 질문 모음</h1>
+      </Header>
       {pages.length > 0 && (
-        <ul className="py-4">
+        <ul className="p-10 py-8">
           {pages.reverse().map((page: PageType) => {
             return (
               <li key={page.id} className="flex gap-3">
