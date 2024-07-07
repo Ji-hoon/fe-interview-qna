@@ -42,9 +42,8 @@ code {
   }
 
   .header-category {
-    @apply grow justify-center flex gap-2 font-bold text-xl;
+    @apply grow flex gap-2 font-bold text-xl;
     flex-shrink: 0;
-    justify-content: center;
     * {
       flex-shrink: 0;
     }
