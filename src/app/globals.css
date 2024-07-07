@@ -54,8 +54,11 @@ code {
     padding-bottom: 2px;
   }
   .inline-link {
-    @apply flex gap-[6px];
     margin-top: -0.5rem;
+
+    .arrow {
+      margin-left: 6px;
+    }
 
     &:hover .label {
       text-decoration: underline;
