@@ -35,10 +35,16 @@ export default function Blocks({ blocks }: { blocks: notion.BlockMap[] }) {
               </pre>
             );
           }
-          if (type === "bookmark") {
+          if (type === "bookmark" || type === "external_object_instance") {
+            let external_url_link = block.format?.original_url;
             return (
-              <Link className="inline-link" target={"_blank"} key={index} href={block.properties.link[0][0]}>
-                <span className="label">{block.properties.title[0][0]}</span>
+              <Link
+                className="inline-link"
+                target={"_blank"}
+                key={index}
+                href={type === "bookmark" ? block.properties.link[0][0] : external_url_link}
+              >
+                <span className="label">{type === "bookmark" ? block.properties.title[0][0] : external_url_link}</span>
                 <span className="arrow">↗</span>
               </Link>
             );

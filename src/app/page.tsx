@@ -3,19 +3,12 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { PageType } from "@/global/types";
 import GridContents from "@/components/GridContents";
+import { cache } from "react";
+
+export const revalidate = 0;
 
 export default async function Main() {
-  if (!process.env.NOTION_DATABASE_ID) {
-    throw new Error("데이터베이스 아이디가 없습니다.");
-  }
-  const db = await notionDatabase.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
-  });
-
-  const pages = db.results as unknown as PageType[];
-
-  console.log(pages);
-
+  const pages = await getPageData();
   const categories = Array.from(
     new Set(
       pages.reverse().map((page) => {
@@ -40,3 +33,17 @@ export default async function Main() {
     </>
   );
 }
+
+export const getPageData = cache(async () => {
+  if (!process.env.NOTION_DATABASE_ID) {
+    throw new Error("데이터베이스 아이디가 없습니다.");
+  }
+  const db = await notionDatabase.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID,
+  });
+
+  const pages = db.results as unknown as PageType[];
+
+  console.log(pages);
+  return pages;
+});
