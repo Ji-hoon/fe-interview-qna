@@ -50,16 +50,32 @@ code {
     @apply bg-gray-100 p-6 rounded-md my-4 text-gray-600 overflow-y-auto;
   }
   .inline-code {
-    @apply px-2 text-lg bg-gray-100 rounded-lg text-[#f472b6];
+    @apply px-2 bg-gray-100 rounded-lg text-[#f472b6];
     padding-bottom: 2px;
   }
   .inline-link {
-    margin-top: -0.65rem;
+    @apply flex gap-[6px];
+    margin-top: -0.5rem;
+
+    &:hover .label {
+      text-decoration: underline;
+    }
   }
   .inline-divider {
     @apply my-4;
   }
   .inline-image {
-    @apply w-full my-4 max-w-[480px] rounded-lg border border-gray-200;
+    @apply w-full my-4 max-w-[500px] rounded-lg border border-gray-200;
+  }
+  .list-button {
+    @apply w-full px-2 py-3 pr-6 hover:bg-gray-100 hover:px-4 transition-all;
+
+    .arrow {
+      @apply transition-all px-[4px];
+      opacity: 0;
+    }
+    &:hover .arrow {
+      opacity: 1;
+    }
   }
 }
