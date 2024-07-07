@@ -6,7 +6,7 @@ import { getPageData } from "@/global/notion";
 export const revalidate = 0;
 
 export default async function Main() {
-  const pages = await getPageData();
+  const pages = await getPageData("");
   const categories = Array.from(
     new Set(
       pages.reverse().map((page) => {
@@ -25,7 +25,7 @@ export default async function Main() {
       <section className="grid pb-6 grid-cols-1 lg:grid-cols-2">
         {categories.length > 0 &&
           categories.map((category, index) => (
-            <GridContents key={`${index}_${category}`} category={category} pages={pages} />
+            <GridContents key={`${index}_${category}`} category={category} pages={pages} restrict={4} />
           ))}
       </section>
     </>

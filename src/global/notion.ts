@@ -13,13 +13,22 @@ export const notionDatabase = new Client({
   auth: process.env.NOTION_API_SECRET,
 });
 
-export const getPageData = cache(async () => {
+export const getPageData = cache(async (category: string) => {
   if (!process.env.NOTION_DATABASE_ID) {
     throw new Error("데이터베이스 아이디가 없습니다.");
   }
-  const db = await notionDatabase.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
-  });
+  let queryOption: { database_id: any; filter?: any } = { database_id: process.env.NOTION_DATABASE_ID };
+
+  if (category) {
+    queryOption.filter = {
+      property: "Select",
+      select: {
+        equals: category,
+      },
+    };
+  }
+  console.log(queryOption);
+  const db = await notionDatabase.databases.query(queryOption);
 
   const pages = db.results as unknown as PageType[];
 
