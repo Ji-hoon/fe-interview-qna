@@ -39,7 +39,7 @@ export default function GridContents({
                   className="list-button"
                   href={`/${category}/${page.url.split("-").reverse()[0].replace("https://www.notion.so/", "") || ""}`}
                 >
-                  {page.properties.Name.title[0].plain_text}
+                  <span className="label">{page.properties.Name.title[0].plain_text}</span>
                   <span className="arrow">→</span>
                 </Link>
               </li>

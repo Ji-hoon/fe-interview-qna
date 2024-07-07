@@ -70,9 +70,10 @@ code {
   }
   .inline-link {
     margin-top: -0.5rem;
+    word-wrap: break-word;
 
     .arrow {
-      margin-left: 6px;
+      padding-left: 6px;
     }
 
     &:hover .label {
@@ -86,11 +87,17 @@ code {
     @apply w-full my-4 max-w-[500px] rounded-lg border border-gray-200;
   }
   .list-button {
-    @apply flex gap-2 w-full px-2 py-3 pr-6 hover:bg-gray-100 hover:px-4 transition-all;
+    @apply w-full px-2 py-3 pr-6 hover:bg-gray-100 hover:px-4 transition-all;
 
+    .label {
+    }
     .arrow {
       @apply transition-all;
       opacity: 0;
+      &:before {
+        content: "";
+        padding-left: 6px;
+      }
     }
     &:hover .arrow {
       opacity: 1;
