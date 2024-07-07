@@ -41,6 +41,14 @@ code {
     @apply px-3 py-1 bg-gray-100 text-sm rounded-2xl;
   }
 
+  .header-category {
+    @apply grow justify-center flex gap-2 font-bold text-xl;
+    flex-shrink: 0;
+    justify-content: center;
+    * {
+      flex-shrink: 0;
+    }
+  }
   .main-list li {
     @apply border-t;
   }

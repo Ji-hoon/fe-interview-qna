@@ -19,7 +19,7 @@ export default async function CategoryLayout({
           </Link>
         </p>
         {params.pageid || (
-          <h3 className="grow justify-center flex gap-2 font-bold text-xl">
+          <h3 className="header-category">
             {params.category}
             <span className="capsule-label">{pages.length}개의 질문</span>
           </h3>
