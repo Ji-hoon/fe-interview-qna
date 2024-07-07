@@ -10,7 +10,9 @@ export default function PageLayout({
     <>
       <Header>
         <p className="">
-          <Link href={"/"}>← 홈으로</Link>
+          <Link href={"/"} className="flex gap-1">
+            <span className="arrow">←</span>홈으로
+          </Link>
         </p>
       </Header>
       <div className="p-10 pt-8">{children}</div>
