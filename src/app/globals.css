@@ -51,6 +51,15 @@ code {
   }
   .inline-code {
     @apply px-2 text-lg bg-gray-100 rounded-lg text-[#f472b6];
-    padding-bottom: 3px;
+    padding-bottom: 2px;
+  }
+  .inline-link {
+    margin-top: -0.65rem;
+  }
+  .inline-divider {
+    @apply my-4;
+  }
+  .inline-image {
+    @apply w-full my-4 max-w-[480px] rounded-lg border border-gray-200;
   }
 }

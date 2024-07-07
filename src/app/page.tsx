@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { notionDatabase } from "@/global/notion";
 import Link from "next/link";
 import Header from "@/components/Header";
