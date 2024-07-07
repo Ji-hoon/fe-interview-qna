@@ -33,11 +33,11 @@ export default async function Main() {
   return (
     <>
       <Header>
-        <h1 className="text-2xl font-bold">프론트엔드 인터뷰 질문 위키</h1>
+        <h1 className="text-2xl font-bold">FE 인터뷰 질문 위키</h1>
         <div className="grow"></div>
         <Link href={"/about"}>About</Link>
       </Header>
-      <section className="grid grid-cols-2">
+      <section className="grid grid-cols-1 lg:grid-cols-2">
         {categories.length > 0 &&
           categories.map((category, index) => {
             return (

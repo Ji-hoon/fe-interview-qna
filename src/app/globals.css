@@ -25,7 +25,8 @@ a {
 }
 
 code {
-  white-space: break-spaces;
+  white-space: pre;
+  display: block;
 }
 
 @layer utilities {
@@ -45,6 +46,6 @@ code {
     @apply border-b;
   }
   .code-block {
-    @apply bg-gray-100 p-6 rounded-md my-4 text-gray-600;
+    @apply bg-gray-100 p-6 rounded-md my-4 text-gray-600 overflow-y-auto;
   }
 }
