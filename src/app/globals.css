@@ -19,6 +19,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  word-break: keep-all;
 }
 a {
   color: rgb(var(--primary));
@@ -47,5 +48,9 @@ code {
   }
   .code-block {
     @apply bg-gray-100 p-6 rounded-md my-4 text-gray-600 overflow-y-auto;
+  }
+  .inline-code {
+    @apply px-2 text-lg bg-gray-100 rounded-lg text-[#f472b6];
+    padding-bottom: 3px;
   }
 }

@@ -24,7 +24,7 @@ export default async function Main() {
 
   const categories = Array.from(
     new Set(
-      pages.map((page) => {
+      pages.reverse().map((page) => {
         return page.properties.Select.select.name;
       })
     )
@@ -37,7 +37,7 @@ export default async function Main() {
         <div className="grow"></div>
         <Link href={"/about"}>About</Link>
       </Header>
-      <section className="grid grid-cols-1 lg:grid-cols-2">
+      <section className="grid pb-6 grid-cols-1 lg:grid-cols-2">
         {categories.length > 0 &&
           categories.map((category, index) => {
             return (
@@ -49,14 +49,14 @@ export default async function Main() {
                   </span>
                 </h3>
                 <ul className="main-list">
-                  {pages.reverse().map((page: PageType) => {
+                  {pages.map((page: PageType) => {
                     if (page.properties.Select.select.name === category)
                       return (
                         <li key={page.id} className="flex">
                           {/* <b>{page.properties.Tags.multi_select[0].name}</b> */}
                           <Link
                             className="w-full px-2 py-3 hover:bg-gray-100 hover:px-4 transition-all"
-                            href={page.url.split("-").reverse()[0] || ""}
+                            href={page.url.split("-").reverse()[0].replace("https://www.notion.so/", "") || ""}
                           >
                             {page.properties.Name.title[0].plain_text}
                           </Link>
