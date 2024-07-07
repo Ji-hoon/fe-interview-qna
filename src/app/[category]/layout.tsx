@@ -24,7 +24,7 @@ export default async function CategoryLayout({
             <span className="capsule-label">{pages.length}개의 질문</span>
           </h3>
         )}
-        <p className="w-[80px]"></p>
+        <p className="w-[80px] hidden sm:block"></p>
       </Header>
       <div className="p-10 pt-8 category-container">{children}</div>
     </>
