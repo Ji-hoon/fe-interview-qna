@@ -70,7 +70,9 @@ code {
   }
   .inline-link {
     margin-top: -0.5rem;
-    word-wrap: break-word;
+    white-space: normal;
+    word-break: break-all;
+    max-width: 100%;
 
     .arrow {
       padding-left: 6px;
