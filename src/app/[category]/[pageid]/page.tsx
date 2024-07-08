@@ -16,7 +16,7 @@ export default async function Detail({ params }: { params: { category: string; p
 
   return (
     <>
-      <Link href={`/${params.category}`} className="flex gap-1">
+      <Link href={`/${params.category}`} className="flex gap-1 back-link">
         <span className="arrow">←</span>
         {params.category} 카테고리로 돌아가기
       </Link>

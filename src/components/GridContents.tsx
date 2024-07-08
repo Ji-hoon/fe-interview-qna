@@ -46,7 +46,7 @@ export default function GridContents({
             );
           }
         })}
-        {restrict && count >= restrict && (
+        {restrict && count > restrict && (
           <li className="flex">
             <Link href={`/${category}`} className="list-button">
               {category} 카테고리의 질문 모두 보기

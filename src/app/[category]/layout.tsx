@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import { getPageData } from "@/global/notion";
 import Link from "next/link";
+import { FiChevronLeft } from "react-icons/fi";
 
 export default async function CategoryLayout({
   params,
@@ -13,18 +14,15 @@ export default async function CategoryLayout({
   return (
     <>
       <Header>
+        <Link href={"/"} className="back-button" title="홈으로">
+          <FiChevronLeft size={24} strokeWidth={3} />
+        </Link>
         {params.pageid || (
           <h3 className="header-category">
             {params.category}
             <span className="capsule-label">{pages.length}개의 질문</span>
           </h3>
         )}
-        <p className="">
-          <Link href={"/"} className="flex gap-1">
-            {/* <span className="arrow">←</span> */}홈으로
-          </Link>
-        </p>
-        {/* <p className="w-[80px] hidden sm:block"></p> */}
       </Header>
       <div className="p-10 pt-8 category-container">{children}</div>
     </>
