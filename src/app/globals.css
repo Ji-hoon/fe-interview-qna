@@ -23,6 +23,7 @@ body {
 }
 a {
   color: rgb(var(--primary));
+  outline: none;
 }
 
 code {
