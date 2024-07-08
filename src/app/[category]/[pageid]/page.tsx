@@ -22,13 +22,15 @@ export default async function Detail({ params }: { params: { category: string; p
       </Link>
       <h1 className="text-2xl font-bold mb-4 pt-4 pb-7 border-b border-gray-300">
         {blocks[0].value.properties.title}
-        <div className="flex gap-2 font-normal mt-4">
-          {blocks[0].value.properties["N~sy"][0][0].split(",").map((tag: string, index: number) => (
-            <span key={`${index}_${tag}`} className="capsule-label">
-              {tag}
-            </span>
-          ))}
-        </div>
+        {blocks[0].value.properties["N~sy"] && (
+          <div className="flex gap-2 font-normal mt-4">
+            {blocks[0].value.properties["N~sy"][0][0].split(",").map((tag: string, index: number) => (
+              <span key={`${index}_${tag}`} className="capsule-label">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </h1>
 
       {blocks.length > 3 ? (
