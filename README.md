@@ -8,6 +8,7 @@
 
 - **프레임워크** : NextJS 14 (App router)
 - **외부 DB 연동** : Notion API
+- **노션 연동** : @notionhq/client, notion-client, react-notion-x
 - **스타일링** : Tailwind CSS, autoprefixer
 
 &nbsp;

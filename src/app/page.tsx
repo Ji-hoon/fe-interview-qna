@@ -18,7 +18,7 @@ export default async function Main() {
   return (
     <>
       <Header>
-        <h1 className="text-2xl font-bold">FE 인터뷰 Q&A 위키</h1>
+        <h1 className="text-2xl font-bold">FE 기술 면접 Q&A 위키</h1>
         <div className="grow"></div>
         <Link href={"/about"}>About</Link>
       </Header>
